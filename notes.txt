@@ -1,0 +1,304 @@
+There are two major components to a GRIB2 file: The header, and the binaries.
+We care mostly about the binaries, which tell us what type of data we're reading, and give us a gridded series of data for latitudes and longitudes.
+
+So if we're dealing with any one point on the grid, we would consider it a vector of each type of measurement. It would look something like:
+<record 1, record 2, ... record n>
+Where there are n grids for different weather statistics.
+
+So what we essentially get is a vector for each x,y coordinate with number of dimensions equal to the number of different measurements taken. 
+
+The first step would probably be to run PCA on all of the vectors. This would tell us which variables best influence dusty weather. (I'm expecting location is a major factor, so x-position and y-position should be included in the vector, maybe as the first two dimensions?.) The eigenvectors corresponding to the largest eigenvectors will tell us which variables are affecting the data the most. This can both help us reduce dimensionality and know which variables, if any, to omit.
+
+Once we have reduced the dimensionality of training data we can try a series of machine learning algorithms on it - Naive-Bayes, SVM, ANN, etc.
+
+After retrieving a GRIB2 file using a short Python script and further reading the documentation, I've figured this much:
+-pygrib, when opening a GRIB file of any type, puts it into a file iterator, made up of instances of type gribmessage.
+-Each gribmessage has a set of keys and values associated with it. For each key, there is an array of data points.
+-Keys can be used for searching through gribmessages. For example, if I wanted temperature data, I would use a conditional statement such as paramaterName=="Temperature".
+
+Getting a data entry into a vector:
+Useful information: Lat/long and height, date/time, and all other parameters associated with that location. This essentially consists of going through every gribmessage and appending things to each vector.
+
+Something worth noting: Different grib2 files have different data in them depending on whether they're labeled 'pgrb' or 'bgrb'. It may be necessary to process training data by putting data from both th 'p' and 'b' files into a single instance.
+UPDATE ON THIS: Using RUC data provided by the NOAA, I only need one file. 
+Data to look at: Dust dates by year. (Armenta)
+We can separate our data into two classes: Dust day and non-dust day. Classification techniques (PCA, SVM) will be helpful for separating classes by variables..
+In this dataset, days before and after dust days are excluded. (A non-dust day does not occur before orr after a dust day).
+Somethings worth noting before ingesting data:
+Dust events start on average at GMT 17.80 (roughly 10:48 am mountain time). The prediction based on geopotential height patterns recorded daily at 18 GMT (11am mountain time)
+
+It appears that the RUC data keeps information for each parameter in a 337 x 451 matrix. 
+Some paramater names are just numbers - I don't expect this data will be useful.
+
+If I want to visualize data:
+Resolution is 13 km
+Use WGS 84 projection
+Latitudes: 16.281 to 58.365
+Longitudes: -139.856 to -57.831
+
+Dust days for 2011-2014:
+2011:
+2/8
+2/27
+3/7
+3/22
+4/3
+4/9
+4/14
+4/18
+4/24
+4/26
+5/1
+5/19
+5/20
+5/28
+5/29
+
+2012:
+2/28
+3/2
+3/6
+3/7
+3/17
+4/1
+4/2
+4/14
+4/19
+4/26
+5/2
+5/18
+5/16
+5/22
+5/23
+5/24
+5/25
+5/26
+
+2013:
+1/29
+2/9
+2/20
+2/24
+3/4
+3/17
+3/23
+4/8
+4/9
+4/14
+4/12
+4/16
+4/17
+4/25
+4/30
+5/20
+
+2014:
+3/12
+3/26
+3/27
+4/2
+4/23
+4/27
+5/5
+5/6
+5/7
+5/11
+
+We want to be able to take each vector in the ingestor and store it somewhere so we're not using absurd amounts of time/memory every time we want to make a calculation. So, everytime we "ingest" a vector, we should store it as a row in a CSV file.
+
+We may want to use maps instead of list iterators/comprehensions - maps in python 3.6 are lazy and we want to do as few computation steps as possible.
+
+Non-lazy evaluation (list comprehension) will easily take 15 seconds to make a vector of each combinatio nof pgrb and bgrb files for any one entry. I expect, though, that there will be fewer problems when I just select a few attributes.
+
+If I want to save on time by only using a few entries, I can use a selector that instructs the ingestor script which values to use for the grb files.
+
+Now that we have a way of ingesting data, let's make a data set!
+What I'm going to do:
+Find a dust date and location, and compare that same location's parameters to one when it wasn't dusty.
+For a start (This can be changed later) let's use the geographic coordinates of Las Cruces, NM:
+32* 18'44"N 106* 46'40'W
+(32.312222, 106.777778)
+Using the coord.py script I wrote, I determined the nearest indices for this coordinate are:
+107, 168
+Let's pair some dust dates with nearby non dust-dates:
+3-22-2011 3-15-2011
+4-14-2011 4-16-2011
+4-14-2012 4-8-2012
+5-1-2011 4-28-2011
+3-7-2012 3-12-2012
+4-1-2012 3-24-2012
+5-22-2012 5-19-2012
+
+As noted by Armeta, dust storms usually start around 18 GMT, so we will use that time for our data.
+
+Using RUC data from NOAA (this is more just better understanding te file format):
+lats,lons=geo500.latlons()
+lats and lons are both 337x451 
+
+What I can currently do:
+Using Armenta's data, do a rudimentary PCA/SVM/other learning network and see if it provides results somewhat similar to what I'm looking for.
+Problem is, I can only use the 2011-2014 dates at 18GMT (nothing else known about dates/times/locations of storms)
+
+If I can get a better idea of when and where dust storms occur, I can try creating an RNN/LSTM modell to predict events. (hopefully dave is back in town)
+There are two major components to a GRIB2 file: The header, and the binaries.
+We care mostly about the binaries, which tell us what type of data we're reading, and give us a gridded series of data for latitudes and longitudes.
+
+So if we're dealing with any one point on the grid, we would consider it a vector of each type of measurement. It would look something like:
+<record 1, record 2, ... record n>
+Where there are n grids for different weather statistics.
+
+So what we essentially get is a vector for each x,y coordinate with number of dimensions equal to the number of different measurements taken. 
+
+The first step would probably be to run PCA on all of the vectors. This would tell us which variables best influence dusty weather. (I'm expecting location is a major factor, so x-position and y-position should be included in the vector, maybe as the first two dimensions?.) The eigenvectors corresponding to the largest eigenvectors will tell us which variables are affecting the data the most. This can both help us reduce dimensionality and know which variables, if any, to omit.
+
+Once we have reduced the dimensionality of training data we can try a series of machine learning algorithms on it - Naive-Bayes, SVM, ANN, etc.
+
+After retrieving a GRIB2 file using a short Python script and further reading the documentation, I've figured this much:
+-pygrib, when opening a GRIB file of any type, puts it into a file iterator, made up of instances of type gribmessage.
+-Each gribmessage has a set of keys and values associated with it. For each key, there is an array of data points.
+-Keys can be used for searching through gribmessages. For example, if I wanted temperature data, I would use a conditional statement such as paramaterName=="Temperature".
+
+Getting a data entry into a vector:
+Useful information: Lat/long and height, date/time, and all other parameters associated with that location. This essentially consists of going through every gribmessage and appending things to each vector.
+
+Something worth noting: Different grib2 files have different data in them depending on whether they're labeled 'pgrb' or 'bgrb'. It may be necessary to process training data by putting data from both th 'p' and 'b' files into a single instance.
+UPDATE ON THIS: Using RUC data provided by the NOAA, I only need one file. 
+Data to look at: Dust dates by year. (Armenta)
+We can separate our data into two classes: Dust day and non-dust day. Classification techniques (PCA, SVM) will be helpful for separating classes by variables..
+In this dataset, days before and after dust days are excluded. (A non-dust day does not occur before orr after a dust day).
+Somethings worth noting before ingesting data:
+Dust events start on average at GMT 17.80 (roughly 10:48 am mountain time). The prediction based on geopotential height patterns recorded daily at 18 GMT (11am mountain time)
+
+It appears that the RUC data keeps information for each parameter in a 337 x 451 matrix. 
+Some paramater names are just numbers - I don't expect this data will be useful.
+
+If I want to visualize data:
+Resolution is 13 km
+Use WGS 84 projection
+Latitudes: 16.281 to 58.365
+Longitudes: -139.856 to -57.831
+
+Dust days for 2011-2014:
+2011:
+2/8
+2/27
+3/7
+3/22
+4/3
+4/9
+4/14
+4/18
+4/24
+4/26
+5/1
+5/19
+5/20
+5/28
+5/29
+
+2012:
+2/28
+3/2
+3/6
+3/7
+3/17
+4/1
+4/2
+4/14
+4/19
+4/26
+5/2
+5/18
+5/16
+5/22
+5/23
+5/24
+5/25
+5/26
+
+2013:
+1/29
+2/9
+2/20
+2/24
+3/4
+3/17
+3/23
+4/8
+4/9
+4/14
+4/12
+4/16
+4/17
+4/25
+4/30
+5/20
+
+2014:
+3/12
+3/26
+3/27
+4/2
+4/23
+4/27
+5/5
+5/6
+5/7
+5/11
+
+We want to be able to take each vector in the ingestor and store it somewhere so we're not using absurd amounts of time/memory every time we want to make a calculation. So, everytime we "ingest" a vector, we should store it as a row in a CSV file.
+
+We may want to use maps instead of list iterators/comprehensions - maps in python 3.6 are lazy and we want to do as few computation steps as possible.
+
+Non-lazy evaluation (list comprehension) will easily take 15 seconds to make a vector of each combinatio nof pgrb and bgrb files for any one entry. I expect, though, that there will be fewer problems when I just select a few attributes.
+
+If I want to save on time by only using a few entries, I can use a selector that instructs the ingestor script which values to use for the grb files.
+
+Now that we have a way of ingesting data, let's make a data set!
+What I'm going to do:
+Find a dust date and location, and compare that same location's parameters to one when it wasn't dusty.
+For a start (This can be changed later) let's use the geographic coordinates of Las Cruces, NM:
+32* 18'44"N 106* 46'40'W
+(32.312222, 106.777778)
+Using the coord.py script I wrote, I determined the nearest indices for this coordinate are:
+107, 168
+Let's pair some dust dates with nearby non dust-dates:
+3-22-2011 3-15-2011
+4-14-2011 4-16-2011
+4-14-2012 4-8-2012
+5-1-2011 4-28-2011
+3-7-2012 3-12-2012
+4-1-2012 3-24-2012
+5-22-2012 5-19-2012
+
+As noted by Armeta, dust storms usually start around 18 GMT, so we will use that time for our data.
+
+Using RUC data from NOAA (this is more just better understanding te file format):
+lats,lons=geo500.latlons()
+lats and lons are both 337x451 
+
+What I can currently do (week of 6/26):
+Using Armenta's data, do a rudimentary PCA/SVM/other learning network and see if it provides results somewhat similar to what I'm looking for.
+Problem is, I can only use the 2011-2014 dates at 18GMT (nothing else known about dates/times/locations of storms)
+
+If I can get a better idea of when and where dust storms occur, I can try creating an RNN/LSTM modell to predict events. (hopefully dave is back in town)
+
+So here's how we start: I'll download data from the first 5 months of 2011-2014 excluding the days immdediately before/after dust events, making sure to classify them in separate documents.
+Then I'll create a script to run PCA on the data, at which point I can store that into a document of its own.
+Given principle component data, I can do the following:
+	1. SVM (just as a test case - if it works, that's the dream)
+	2. Create a neural network model in tensor flow (I'll have to do a bit more research on how to do this)
+
+Plans for now: (week of 7/1):
+After familiarizing myself with tensorflow, I'll try to create some basic models.
+I will use k principal components, and record whichever one provides the least loss for each model I create.
+
+Week of 7/10:
+Feedforward neural network script finally works. Plan of action:
+Get a better set of training data.
+Test FFNN with raw data and principal components.
+Start developing recurrent/context-sensitive neural network model.
+DAMMIT DAVE GET US THE DATA
+
+Week of 7/17:
+Continuation of work from last week.

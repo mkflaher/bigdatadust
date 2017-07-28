@@ -1,0 +1,223 @@
+digraph G {
+
+        rankdir=LR
+	splines=line
+        nodesep=.05;
+        
+        node [label=""];
+        
+        subgraph cluster_0 {
+		color=white;
+                node [style=solid,color=blue4, shape=circle];
+		x1 x2 x3; x4 x5
+		label = "X";
+	}
+
+	subgraph cluster_1 {
+		color=white;
+		node [style=solid,color=red2, shape=circle];
+		a12 a22 a32 a42 a52 a62 a72 a82 a92 a02;
+		label = "H1";
+	}
+
+	subgraph cluster_2 {
+		color=white;
+		node [style=solid,color=red2, shape=circle];
+		a13 a23 a33 a43 a53 a63 a73 a83 a93 a03;
+		label = "H2";
+	}
+
+	subgraph cluster_3 {
+		color=white;
+		node [style=solid,color=seagreen2, shape=circle];
+		O1;
+		label="Y";
+	}
+
+        x1 -> a12;
+        x1 -> a22;
+        x1 -> a32;
+        x1 -> a42;
+        x1 -> a52;
+	x1 -> a62;
+	x1 -> a72;
+	x1 -> a82;
+	x1 -> a92;
+	x1 -> a02;
+
+        x2 -> a12;
+        x2 -> a22;
+        x2 -> a32;
+        x2 -> a42;
+        x2 -> a52;
+	x2 -> a62;
+	x2 -> a72;
+	x2 -> a82;
+	x2 -> a92;
+	x2 -> a02;
+
+        x2 -> a12;
+        x2 -> a22;
+        x2 -> a32;
+        x2 -> a42;
+        x2 -> a52;
+	x2 -> a62;
+	x2 -> a72;
+	x2 -> a82;
+	x2 -> a92;
+	x2 -> a02;
+
+        x3 -> a12;
+        x3 -> a22;
+        x3 -> a32;
+        x3 -> a42;
+        x3 -> a52;
+	x3 -> a62;
+	x3 -> a72;
+	x3 -> a82;
+	x3 -> a92;
+	x3 -> a02;
+
+        x4 -> a12;
+        x4 -> a22;
+        x4 -> a32;
+        x4 -> a42;
+        x4 -> a52;
+	x4 -> a62;
+	x4 -> a72;
+	x4 -> a82;
+	x4 -> a92;
+	x4 -> a02;
+
+        x5 -> a12;
+        x5 -> a22;
+        x5 -> a32;
+        x5 -> a42;
+        x5 -> a52;
+	x5 -> a62;
+	x5 -> a72;
+	x5 -> a82;
+	x5 -> a92;
+	x5 -> a02;
+	
+	a12 -> a13;
+	a12 -> a23;
+	a12 -> a33;
+	a12 -> a43;
+	a12 -> a53;
+	a12 -> a63;
+	a12 -> a73;
+	a12 -> a83;
+	a12 -> a93;
+	a12 -> a03;
+
+	a22 -> a13;
+	a22 -> a23;
+	a22 -> a33;
+	a22 -> a43;
+	a22 -> a53;
+	a22 -> a63;
+	a22 -> a73;
+	a22 -> a83;
+	a22 -> a93;
+	a22 -> a03;
+
+	a32 -> a13;
+	a32 -> a23;
+	a32 -> a33;
+	a32 -> a43;
+	a32 -> a53;
+	a32 -> a63;
+	a32 -> a73;
+	a32 -> a83;
+	a32 -> a93;
+	a32 -> a03;
+
+	a42 -> a13;
+	a42 -> a23;
+	a42 -> a33;
+	a42 -> a43;
+	a42 -> a53;
+	a42 -> a63;
+	a42 -> a73;
+	a42 -> a83;
+	a42 -> a93;
+	a42 -> a03;
+
+	a52 -> a13;
+	a52 -> a23;
+	a52 -> a33;
+	a52 -> a43;
+	a52 -> a53;
+	a52 -> a63;
+	a52 -> a73;
+	a52 -> a83;
+	a52 -> a93;
+	a52 -> a03;
+
+	a62 -> a13;
+	a62 -> a23;
+	a62 -> a33;
+	a62 -> a43;
+	a62 -> a53;
+	a62 -> a63;
+	a62 -> a73;
+	a62 -> a83;
+	a62 -> a93;
+	a62 -> a03;
+
+	a72 -> a13;
+	a72 -> a23;
+	a72 -> a33;
+	a72 -> a43;
+	a72 -> a53;
+	a72 -> a63;
+	a72 -> a73;
+	a72 -> a83;
+	a72 -> a93;
+	a72 -> a03;
+
+	a82 -> a13;
+	a82 -> a23;
+	a82 -> a33;
+	a82 -> a43;
+	a82 -> a53;
+	a82 -> a63;
+	a82 -> a73;
+	a82 -> a83;
+	a82 -> a93;
+	a82 -> a03;
+
+	a92 -> a13;
+	a92 -> a23;
+	a92 -> a33;
+	a92 -> a43;
+	a92 -> a53;
+	a92 -> a63;
+	a92 -> a73;
+	a92 -> a83;
+	a92 -> a93;
+	a92 -> a03;
+
+	a02 -> a13;
+	a02 -> a23;
+	a02 -> a33;
+	a02 -> a43;
+	a02 -> a53;
+	a02 -> a63;
+	a02 -> a73;
+	a02 -> a83;
+	a02 -> a93;
+	a02 -> a03;
+
+	a13 -> O1;
+	a23 -> O1;
+	a33 -> O1;
+	a43 -> O1;
+	a53 -> O1;
+	a63 -> O1;
+	a73 -> O1;
+	a83 -> O1;
+	a93 -> O1;
+	a03 -> O1;
+}
