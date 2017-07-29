@@ -1,0 +1,6 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Map of 500mB geopotential height during a major dust event on April 14, 2012, created using NOAA WCT viewer.}}{6}
+\contentsline {figure}{\numberline {2}{\ignorespaces Map of dust events created by Josue Gutierrez using data provided by Dr. David DuBois that are used to generate the set of training data.}}{7}
+\contentsline {figure}{\numberline {3}{\ignorespaces Two scatter plots for principal components, one with no clear distinction between dust and nondust events (a), and one with some visible distinction (b).}}{8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{8}
+\contentsline {figure}{\numberline {4}{\ignorespaces Basic LSTM cell, with the exception of $tanh$ neural network layers instead of the usual sigmoid.}}{10}

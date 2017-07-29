@@ -70,7 +70,7 @@ def main(): #this will do all the work
     #set up the network
     nNodes = 25
     #We need three matrices for weights: inputs to layer 1, layer 1 to layer 2, layer 2 to output
-    nLayers = 8
+    nLayers = 6
     nNodes = 25
     #w1 = init((pclen,nNodes))
     #w2 = init((nNodes,nNodes))

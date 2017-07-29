@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction}{4}
+\contentsline {subsection}{\numberline {1.1}Research Overview}{4}
+\contentsline {section}{\numberline {2}Methodology}{5}
+\contentsline {subsection}{\numberline {2.1}Data}{5}
+\contentsline {subsection}{\numberline {2.2}Processing}{6}
+\contentsline {subsection}{\numberline {2.3}Modeling}{9}
+\contentsline {subsection}{\numberline {2.4}Feedforward Neural Network}{9}
+\contentsline {subsection}{\numberline {2.5}Recurrent Neural Network with LSTM}{10}
+\contentsline {section}{\numberline {3}Results}{11}
+\contentsline {subsection}{\numberline {3.1}Feedforward Neural Netowrk}{11}
+\contentsline {subsection}{\numberline {3.2}Recurrent Neural Network with LSTM}{11}
+\contentsline {section}{\numberline {4}Conclusion}{12}

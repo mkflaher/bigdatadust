@@ -21,10 +21,10 @@ def forwardprop(X,cell,weights_l1,weights_l2):
     cand_l1 = tf.nn.tanh(tf.matmul(X,weights_l1['candidate']))
     out_l1 = tf.nn.tanh(tf.matmul(X,weights_l1['out']))
 
-    forget = tf.nn.sigmoid(tf.matmul(forget_l1,weights_l2['forget']))
-    inp = tf.nn.sigmoid(tf.matmul(inp_l1,weights_l2['input']))
+    forget = tf.nn.tanh(tf.matmul(forget_l1,weights_l2['forget']))
+    inp = tf.nn.tanh(tf.matmul(inp_l1,weights_l2['input']))
     cand = tf.nn.tanh(tf.matmul(cand_l1,weights_l2['candidate']))
-    out = tf.nn.sigmoid(tf.matmul(out_l1,weights_l2['out']))
+    out = tf.nn.tanh(tf.matmul(out_l1,weights_l2['out']))
 
 
     cell_out = forget * cell + inp * cand #update the cell state
@@ -110,7 +110,7 @@ def main(): #this will do all the work
 
     yhat,cell_state = forwardprop(X,cell,weights_l1,weights_l2)
     predict = tf.argmax(yhat,axis=1)
-    logit_weights = tf.constant([1.0,7.9064])
+    logit_weights = tf.constant([1.0,9.4167])
     loss = tf.nn.weighted_cross_entropy_with_logits(logits=yhat,targets=y,pos_weight=logit_weights)
     updates = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
 
@@ -138,7 +138,7 @@ def main(): #this will do all the work
                     rnnlog.write('WRONG! ')
                 rnnlog.write('Loss: %s' % sess.run(loss, feed_dict={X:train_x[i:i+1],y:train_y[i:i+1],cell:train_cell[i:i+1]}))
                 rnnlog.write('\r\n')
-        train_accuracy = np.mean(np.argmax(train_y, axis=1) == sess.run(predict,feed_dict={X:train_x,y:train_y,cell:train_cell}))
+        train_accuracy = np.mean(np.argmax(train_y, axis=1) == np.argmax(sess.run(predict,feed_dict={X:train_x,y:train_y,cell:train_cell})))
         #test_accuracy = np.mean(np.argmax(test_y, axis=1) == sess.run(predict,feed_dict={X:test_x,y:test_y}))
         print("Epoch %d  Training Accuracy %.9f  " % (epoch + 1, 100*train_accuracy))
 

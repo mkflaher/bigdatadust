@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.5.21)  6 JUL 2017 18:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.7.27)  28 JUL 2017 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **draft.tex
 (./draft.tex
-LaTeX2e <2017/01/01> patch level 3
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size10.clo
@@ -55,7 +55,7 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -111,8 +111,7 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
-No file draft.aux.
+ (./draft.aux)
 \openout1 = `draft.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -127,6 +126,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
+
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count101
@@ -196,70 +196,91 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 10.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 10.
-
-
-LaTeX Warning: Citation `unep' on page 1 undefined on input line 12.
-
-
-LaTeX Warning: Citation `phairs' on page 1 undefined on input line 14.
-
-
-LaTeX Warning: Citation `500mb' on page 1 undefined on input line 17.
-
-[1
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `tan' on page 2 undefined on input line 19.
-
-
-LaTeX Warning: Citation `wget' on page 2 undefined on input line 28.
-
-
-LaTeX Warning: Citation `pgdoc' on page 2 undefined on input line 32.
+No file draft.toc.
+\tf@toc=\write3
+\openout3 = `draft.toc'.
 
 [2]
+No file draft.lof.
+\tf@lof=\write4
+\openout4 = `draft.lof'.
 
-LaTeX Warning: Reference `fig:map' on page 3 undefined on input line 34.
-
-<images/abqlow.png, id=16, 3723.9125pt x 1974.37625pt>
+[3] [4] <images/abqlow.png, id=20, 3723.9125pt x 1974.37625pt>
 File: images/abqlow.png Graphic file (type png)
- <use images/abqlow.png>
-Package pdftex.def Info: images/abqlow.png used on input line 38.
-(pdftex.def)             Requested size: 345.0pt x 182.89809pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 45.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 45.
 
-<images/0vs1.png, id=17, 1442.5092pt x 1056.5874pt>
+<use images/abqlow.png>
+Package pdftex.def Info: images/abqlow.png used on input line 56.
+(pdftex.def)             Requested size: 345.0pt x 182.89809pt.
+ [5]
+<images/dustevents.jpg, id=25, 1284.8pt x 908.39375pt>
+File: images/dustevents.jpg Graphic file (type jpg)
+
+<use images/dustevents.jpg>
+Package pdftex.def Info: images/dustevents.jpg used on input line 65.
+(pdftex.def)             Requested size: 345.0pt x 243.92508pt.
+ [6 <./images/abqlow.png (PNG copy)>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 69.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 69.
+
+<images/0vs1.png, id=29, 1442.5092pt x 1056.5874pt>
 File: images/0vs1.png Graphic file (type png)
  <use images/0vs1.png>
-Package pdftex.def Info: images/0vs1.png used on input line 50.
+Package pdftex.def Info: images/0vs1.png used on input line 73.
 (pdftex.def)             Requested size: 310.4979pt x 227.41982pt.
 
-<images/2vs4.png, id=19, 1442.5092pt x 1056.5874pt>
+<images/2vs4.png, id=31, 1442.5092pt x 1056.5874pt>
 File: images/2vs4.png Graphic file (type png)
  <use images/2vs4.png>
-Package pdftex.def Info: images/2vs4.png used on input line 51.
+Package pdftex.def Info: images/2vs4.png used on input line 74.
 (pdftex.def)             Requested size: 310.4979pt x 227.41982pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--52
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 [][]
  []
 
-[3 <./images/abqlow.png (PNG copy)>] [4] [5 <./images/0vs1.png> <./images/2vs4.
-png>]
+[7 <./images/dustevents.jpg>] [8 <./images/0vs1.png> <./images/2vs4.png>]
 
-LaTeX Warning: Reference `fig:pca' on page 6 undefined on input line 57.
+LaTeX Warning: Citation `activation' on page 9 undefined on input line 90.
+
+[9] <images/LSTMCell.png, id=47, 718.685pt x 322.20375pt>
+File: images/LSTMCell.png Graphic file (type png)
+
+<use images/LSTMCell.png>
+Package pdftex.def Info: images/LSTMCell.png used on input line 98.
+(pdftex.def)             Requested size: 345.0pt x 154.6757pt.
 
 
-LaTeX Warning: Citation `rnn' on page 6 undefined on input line 60.
+LaTeX Warning: Citation `lstm' on page 10 undefined on input line 102.
+
+[10 <./images/LSTMCell.png>]
+Overfull \hbox (88.22313pt too wide) in paragraph at lines 108--117
+ [][] 
+ []
 
 
-LaTeX Warning: Citation `tfdoc' on page 6 undefined on input line 62.
+Overfull \hbox (0.80615pt too wide) in paragraph at lines 149--150
+\OT1/cmr/m/n/10 With a res-o-lu-tion of 24 hours, the re-cur-rent neu-ral net-w
+ork will achieve 89.4685%
+ []
 
-[6] [7] (./draft.aux)
+[11] [12]
+Underfull \hbox (badness 6741) in paragraph at lines 170--171
+[]\OT1/cmr/m/n/10 Olah, C. "Un-der-stand-ing LSTM Net-works." \OT1/cmr/m/it/10 
+Co-lah's blog. \OT1/cmr/m/n/10 Aug.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+\OT1/cmr/m/n/10 27 2015. Web. Jul. 20 2017. $\OT1/cmtt/m/n/10 http : / / colah 
+. github . io / posts /
+ []
+
+[13] (./draft.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -268,26 +289,29 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2997 strings out of 493013
- 42471 string characters out of 6139317
- 107065 words of memory out of 5000000
- 6520 multiletter control sequences out of 15000+600000
+ 3016 strings out of 492995
+ 42767 string characters out of 6138756
+ 112557 words of memory out of 5000000
+ 6541 multiletter control sequences out of 15000+600000
  8409 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,7n,32p,1048b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
- </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmti10.pk> </usr/sha
-re/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr8.pk> </usr/share/texmf-dist/
-fonts/pk/ljfour/public/cm/dpi600/cmmi10.pk> </home/sean/.texlive/texmf-var/font
-s/pk/ljfour/public/cm/cmtt10.600pk> </home/sean/.texlive/texmf-var/fonts/pk/ljf
-our/public/cm/cmbx12.600pk> </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dp
-i600/cmbx10.pk> </usr/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr10.p
-k> </home/sean/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.720pk> </usr
-/share/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr12.pk> </usr/share/texmf-
-dist/fonts/pk/ljfour/public/cm/dpi600/cmr17.pk>
-Output written on draft.pdf (7 pages, 490246 bytes).
+ 39i,7n,32p,1130b,268s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmtt10.pfb>
+Output written on draft.pdf (13 pages, 670840 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
